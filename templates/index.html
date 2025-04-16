@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ecuaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        form {
+            margin-bottom: 2rem;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 50px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .resultado {
+            background-color: #ffffff;
+            border: 2px solid #3498db;
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            color: #2c3e50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Resolver Sistema de 2 Ecuaciones</h1>
+
+    <form action="/resolver" method="POST">
+        <p>Ecuación 1: <input type="number" name="a1" required> x + <input type="number" name="b1" required> y = <input type="number" name="c1" required></p>
+        <p>Ecuación 2: <input type="number" name="a2" required> x + <input type="number" name="b2" required> y = <input type="number" name="c2" required></p>
+        <button type="submit">Resolver</button>
+    </form>
+
+    {% if solucion %}
+        <div class="resultado">
+            <strong>Solución:</strong> {{ solucion }}
+        </div>
+    {% endif %}
+</body>
+</html>
